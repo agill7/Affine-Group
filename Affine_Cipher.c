@@ -12,41 +12,93 @@ char removeNonLetters(char *plaintext);
 
 int main()
 {
-    char *plaintext; 
+    char plaintext[300]; 
     int a, b;
-    int option;
+    int option, menu;
 
-    printf("Enter the text to be encrypted or decrypted: ");
-    fgets(plaintext, sizeof(plaintext), stdin);
+    option = menu = 0;
 
+    printf("Enter 1 for encrypted or decrypted with keys\n");
+    printf("Enter 2 for Brute Froce of affiner cipher\n");
+    printf("Enter: ");
+    scanf("%d", &menu);
 
-    for (int i = 0; i < strlen(plaintext); i++)
+    switch (menu)
     {
-        plaintext[i] = toupper(plaintext[i]);
-    }
+    case 1:
 
-    removeNonLetters(plaintext);
+        printf("Enter the text to be encrypted or decrypted: ");
+        fgets(plaintext, sizeof(plaintext), stdin);
 
-    do{
 
-        printf("Enter key 1: ");
-        scanf("%d", &a);
+        for (int i = 0; i < strlen(plaintext); i++)
+        {
+            plaintext[i] = toupper(plaintext[i]);
+        }
 
-    }while(gcd(a, 26) != 26);
+        removeNonLetters(plaintext);
 
-    printf("Enter key 2: ");
-    scanf("%d", &b);
+        do{
 
-    if (option == 1)
-            affineEncrypt(plaintext, a, b);
-        else if (option == 2)
-            affineDecrypt(plaintext, a, b);
-        else
-            printf("Invalid input\n");
+            printf("Enter key 1: ");
+            scanf("%d", &a);
+
+        }while(gcd(a, 26) != 26);
+
+        printf("Enter key 2: ");
+        scanf("%d", &b);
+
+        while((option != 1) && (option != 2))
+        {
+        
+            printf("Enter 1 to encrypt or 2 to decrypt: ");
+            scanf("%d", &option);
+
+            if (option == 1)
+                    affineEncrypt(plaintext, a, b);
+                else if (option == 2)
+                    affineDecrypt(plaintext, a, b);
+                else if (option == 3)
+                    affineDecrypt(plaintext, a, b);
+                else
+                    printf("Invalid input\n");
+        
+        }
+
+        printf("Result: %s\n", plaintext);
+        
+            break;
     
+    case 2: 
+        
+        printf("Enter the text to decrypted: ");
+        fgets(plaintext, sizeof(plaintext), stdin);
 
-    printf("Result: %s\n", plaintext);
+        for (int i = 1; i < strlen(plaintext); i++) 
+        {
+            plaintext[i] = toupper(plaintext[i]);
 
+        }
+
+        for(a = 1; a < 26; b++)
+            {
+                if (gcd(a, 26) == 1)   
+                {
+                    for(a = 0; b < 26; ++a)
+                    {
+                            affineBruteFroce(plaintext, a, b); 
+                    }
+                }
+            }
+
+        break;
+
+    default:
+
+        printf("Enter invaid option");
+
+        break;
+    }
 }
 
 void affineDecrypt(char *plaintext, int a, int b)
