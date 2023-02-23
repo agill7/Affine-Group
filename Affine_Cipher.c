@@ -13,7 +13,7 @@ int main()
 {
     char *plaintext; 
     int a, b;
-    int opt;
+    int option;
 
     printf("Enter the text to be encrypted or decrypted: ");
     fgets(plaintext, sizeof(plaintext), stdin);
