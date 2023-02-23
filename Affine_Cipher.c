@@ -38,7 +38,7 @@ int main()
     also can be used to encryt a text. User can give thier own keys
 
     Case 2 is for brute forece, used for when the keys are unkown. 
-    Groupe cipher text =  RILTOEAQGEQDPOJOESPQW
+    Group cipher text =  RILTOEAQGEQDPOJOESPQW
     */
 
     switch(menu)
@@ -57,14 +57,14 @@ int main()
             plaintext[i] = toupper(plaintext[i]);
         }
 
-        // Removing character that are no characters
+        // Remove numbers and sybloms from string
         removeNonLetters(plaintext);
 
         // Getting the keys
         printf("Enter key 1 (1 < 26): ");
         scanf("%d", &a);
 
-        // If the key is not elatively prime to 26 loop untill input is
+        // If the key is not relatively prime to 26 loop until input is
         // GCD number are 1,3,5,7,9,11,15,17,19,23,25,
         while((gcd(a, 26) != 1) || (a >= 26))
         {
