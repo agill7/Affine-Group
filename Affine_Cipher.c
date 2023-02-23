@@ -35,6 +35,19 @@ int main()
 
     printf("Enter key 2: ");
     scanf("%d", &b);
+    
+    if (option == 1)
+            affineEncrypt(plaintext, a, b);
+        else if (option == 2)
+            affineDecrypt(plaintext, a, b);
+        else
+            printf("Invalid input\n");
+    }
+
+    printf("Result: %s\n", text);
+
+    return 0;
+
 
 }
 
