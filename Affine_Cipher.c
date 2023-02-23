@@ -5,6 +5,7 @@
 
 void affineDecrypt(char *plaintext, int a, int b);
 void affineEncrypt(char *plaintext, int a, int b);
+void affineBruteFroce(char *plaintext, int a, int b);
 int gcd(int a, int b);
 int modInv(int a, int m);
 char removeNonLetters(char *plaintext);
@@ -35,19 +36,16 @@ int main()
 
     printf("Enter key 2: ");
     scanf("%d", &b);
-    
+
     if (option == 1)
             affineEncrypt(plaintext, a, b);
         else if (option == 2)
             affineDecrypt(plaintext, a, b);
         else
             printf("Invalid input\n");
-    }
+    
 
     printf("Result: %s\n", plaintext);
-
-    return 0;
-
 
 }
 
@@ -60,6 +58,11 @@ void affineEncrypt(char *plaintext, int a, int b)
 {
 
 }
+
+void affineBruteFroce(char *plaintext, int a, int b)
+{
+
+} 
 
 int gcd(int a, int b)
 {
