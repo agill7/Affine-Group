@@ -44,7 +44,7 @@ int main()
             printf("Invalid input\n");
     }
 
-    printf("Result: %s\n", text);
+    printf("Result: %s\n", plaintext);
 
     return 0;
 
