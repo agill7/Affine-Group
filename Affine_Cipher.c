@@ -112,12 +112,12 @@ int main()
         }
 
         // Looping though the keys for brutefroce
-        for(a = 1; a < 26; b++)
+        for(a = 1; a < 26; a++)
             {
                 // Checking keys so only those that are relatively prime to 26
                 if (gcd(a, 26) == 1)   
                 {
-                    for(a = 0; b < 26; ++a)
+                    for(b= 0; b < 26; ++b)
                     {
                             // Calls function
                             affineBruteFroce(plaintext, a, b); 
