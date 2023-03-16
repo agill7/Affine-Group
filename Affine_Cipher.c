@@ -51,7 +51,7 @@ int main()
         printf("Enter the text to be encrypted or decrypted: ");
         scanf("%s", &plaintext);
 
-        // Chaning input to upper case
+        // Changing input to upper case
         for (int i = 0; i < strlen(plaintext); i++)
         {
             plaintext[i] = toupper(plaintext[i]);
@@ -194,11 +194,11 @@ void affineBruteFroce(char *plaintext, int a, int b)
         character = plaintext[i];
         decryt = (modInvCheck * (character - 'A' - b)) % 26;
 
-        // IF number is less then 0 add 26 to get a number that is in the alphabet 
+        // If number is less then 0 add 26 to get a number that is in the alphabet 
         if(decryt < 0)
             decryt += 26;
 
-        // Add A for the ACCI conversiton 
+        // Add A for the ACCI conversion  
         text[i] = 'A' + decryt;
     }
 
