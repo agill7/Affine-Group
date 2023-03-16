@@ -137,7 +137,12 @@ int main()
 
 // Function to calculate the GCD of two numbers
 int gcd(int a, int b)
-{
+{ 
+    if (a == 0)
+    {
+        return b;
+    {
+    return gcd(b % a, a);
    
 }
 
@@ -150,14 +155,56 @@ int modInv(int a, int m)
 // Function to remove numbers and sybloms from string
 char removeNonLetters(char *plaintext)
 {
+    int j, i;
 
+    for (i = 0, j = 0; plaintext[i] != '\0'; i++)
+     {
+        if (!isspace(plaintext[i]) && !isalpha(plaintext[i]))
+        {
+            continue;   
+        }
+        plaintext[j++] = plaintext[i];
+    }
+    plaintext[j] = '\0';
     
 }
 
 // Function to implement the Brute Force
 void affineBruteFroce(char *plaintext, int a, int b)
 {
+    int i, modInvCheck, decryt, lengh;
+    lengh = strlen(plaintext);
 
+    char character, text[lengh];
+
+    // Check to to see if CoefficientOne is invered
+    modInvCheck = modInv(a, 26);
+        if(modInvCheck == 0)
+        {
+            return;
+        }
+
+
+    // Replace each letter with the corresponding letter
+    // decrypted using the affine cipher
+    for (i = 0; i < strlen(plaintext); i++)
+    {
+        // Stores a letter rom the cipher text in character
+        // The decrts the text with the keys
+        character = plaintext[i];
+        decryt = (modInvCheck * (character - 'A' - b)) % 26;
+
+        // IF number is less then 0 add 26 to get a number that is in the alphabet 
+        if(decryt < 0)
+            decryt += 26;
+
+        // Add A for the ACCI conversiton 
+        text[i] = 'A' + decryt;
+    }
+
+    text[lengh] = '\0';
+
+    printf("Keys: a = %d, b = %d \tDecryption: %s\n", a, b, text);
 }
 
 // Function to implement the affine cipher for encryption
