@@ -34,10 +34,10 @@ int main()
     scanf("%d", &menu);
 
     /* 
-    Case 1 is for encrypted or decrypted with keys when the keys are know to the user
-    also can be used to encryt a text. User can give thier own keys
+    Case 1 is for encrypted or decrypted with keys when the keys are known to the user
+    also can be used to encryt a text. User can give thier own keys.
 
-    Case 2 is for brute forece, used for when the keys are unkown. 
+    Case 2 is for brute forece, used for when the keys are unknown. 
     Group cipher text =  RILTOEAQGEQDPOJOESPQW
     */
 
@@ -57,14 +57,14 @@ int main()
             plaintext[i] = toupper(plaintext[i]);
         }
 
-        // Remove numbers and sybloms from string
+        // Remove numbers and symbolsfrom string
         removeNonLetters(plaintext);
 
         // Getting the keys
         printf("Enter key 1 (1 < 26): ");
         scanf("%d", &a);
 
-        // If the key is not relatively prime to 26 loop until input is
+        // If the key is not relatively prime to 26 loop until input it is
         // GCD number are 1,3,5,7,9,11,15,17,19,23,25,
         while((gcd(a, 26) != 1) || (a >= 26))
         {
@@ -147,7 +147,7 @@ int gcd(int a, int b)
    
 }
 
-// Function to calculate the modular multiplicative inverse of a
+// Function to calculate the modular multiplicative inverse 
 int modInv(int a, int m)
 {
     
@@ -178,7 +178,7 @@ void affineBruteFroce(char *plaintext, int a, int b)
 
     char character, text[lengh];
 
-    // Check to to see if CoefficientOne is invered
+    // Check to to see if CoefficientOne is inverted
     modInvCheck = modInv(a, 26);
         if(modInvCheck == 0)
         {
@@ -190,8 +190,8 @@ void affineBruteFroce(char *plaintext, int a, int b)
     // decrypted using the affine cipher
     for (i = 0; i < strlen(plaintext); i++)
     {
-        // Stores a letter rom the cipher text in character
-        // The decrts the text with the keys
+        // Stores a letter from the cipher text in character
+        // The decrypts the text with the keys
         character = plaintext[i];
         decryt = (modInvCheck * (character - 'A' - b)) % 26;
 
@@ -199,7 +199,7 @@ void affineBruteFroce(char *plaintext, int a, int b)
         if(decryt < 0)
             decryt += 26;
 
-        // Add A for the ACCI conversion  
+        // Add A for the ASCCI conversion  
         text[i] = 'A' + decryt;
     }
 
