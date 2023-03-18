@@ -150,8 +150,17 @@ int gcd(int a, int b)
 // Function to calculate the modular multiplicative inverse 
 int modInv(int a, int m)
 {
-    
+int x, y;
+for (int i = 1; i < m; i++)
+{
+if ((a * i) % m == 1)
+{
+return i;
 }
+}
+return -1;
+}
+    
 
 // Function to remove numbers and sybloms from string
 char removeNonLetters(char *plaintext)
