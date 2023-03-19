@@ -143,7 +143,7 @@ int gcd(int a, int b)
   int num1, num2, result;
   scanf("%d %d, &num1, &num2);
   result= gcd(num1, num2);
-  return 0;  ;
+  return 0;  
    
 }
 
@@ -162,7 +162,7 @@ return -1;
 }
     
 
-// Function to remove numbers and sybloms from string
+// Function to remove numbers and symbols from string
 char removeNonLetters(char *plaintext)
 {
     int j, i;
