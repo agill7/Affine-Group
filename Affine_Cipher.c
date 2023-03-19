@@ -137,11 +137,11 @@ int main()
 
 // Function to calculate the GCD of two numbers
 int gcd(int a, int b) {
-    if (b==0){
+    if (b==0){ // checking if the second input is equal to zero
         return a;
     }
     else {
-        return gcd(b, a %b);
+        return gcd(b, a % b); // return a in which the gcd is stored 
     }
 }
 
