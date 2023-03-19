@@ -137,8 +137,6 @@ int main()
 
 // Function to calculate the GCD of two numbers
 int gcd(int a, int b)
-{ 
-    int main()
 {
   int num1, num2, result;
   scanf("%d %d, &num1, &num2);
