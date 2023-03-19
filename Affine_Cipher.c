@@ -136,13 +136,13 @@ int main()
 }
 
 // Function to calculate the GCD of two numbers
-int gcd(int a, int b)
-{
-  int num1, num2, result;
-  scanf("%d %d, &num1, &num2);
-  result= gcd(num1, num2);
-  return 0;  
-   
+int gcd(int a, int b) {
+    if (b==0){
+        return a;
+    }
+    else {
+        return gcd(b, a %b);
+    }
 }
 
 // Function to calculate the modular multiplicative inverse 
