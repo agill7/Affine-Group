@@ -137,9 +137,10 @@ int main()
 
 // Function to calculate the GCD of two numbers
 int gcd(int a, int b) {
-    if (a==0){ // checking if the second input is equal to zero
+    if (a==0)
+     { // checking if the second input is equal to zero
         return b;
-    }
+     }
        
     return gcd(b % a, a); // return a in which the gcd is stored 
 }
@@ -148,14 +149,15 @@ int gcd(int a, int b) {
 int modInv(int a, int m)
 {
 
-    for (int i = 1; i < m; i++)
-        {
-        if ((a * i) % m == 1)
-            {
-                return i;
-            }
-    }
-    return -1;
+   for (int i = 1; i < m; i++)
+     {
+       if ((a * i) % m == 1)
+         {
+            return i;
+         }
+      }
+    
+   return -1;
 }
     
 
