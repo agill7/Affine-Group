@@ -226,8 +226,13 @@ void affineEncrypt(char *plaintext, int a, int b)
 
 // Function to implement the affine cipher for decryption
 void affineDecrypt(char *plaintext, int a, int b)
+    
 {
-    plaintext[i] = (modInv(plaintext[i] - 'A') % 26 +'A';
-    decryt = (modInvCheck * (character - 'A' - b)) % 26;
+    for (int i = 0; i < strlen(plaintext); i++)
+        {
+            plaintext[i] = (modInv(a,26)*((paintext[i]- 'A') - b + 26)) % 26 + 'A'
+        }
+                    
+    
 
 }
