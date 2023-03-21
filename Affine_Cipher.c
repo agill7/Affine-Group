@@ -137,27 +137,26 @@ int main()
 
 // Function to calculate the GCD of two numbers
 int gcd(int a, int b) {
-    if (a==0)
-     { // checking if the second input is equal to zero
-        return b;
-     }
-       
-    return gcd(b % a, a); // return a in which the gcd is stored 
+    if (b==0){ // checking if the second input is equal to zero
+        return a;
+    }
+    else {
+        return gcd(b, a % b); // return a in which the gcd is stored 
+    }
 }
 
 // Function to calculate the modular multiplicative inverse 
 int modInv(int a, int m)
 {
-
-   for (int i = 1; i < m; i++)
-     {
-       if ((a * i) % m == 1)
-         {
-            return i;
-         }
-      }
-    
-   return -1;
+int x, y;
+for (int i = 1; i < m; i++)
+{
+if ((a * i) % m == 1)
+{
+return i;
+}
+}
+return -1;
 }
     
 
@@ -174,7 +173,7 @@ char removeNonLetters(char *plaintext)
         }
         plaintext[j++] = plaintext[i];
     }
-    plaintext[j-1] = '\0';
+    plaintext[j] = '\0';
     
 }
 
@@ -219,12 +218,16 @@ void affineBruteFroce(char *plaintext, int a, int b)
 // Function to implement the affine cipher for encryption
 void affineEncrypt(char *plaintext, int a, int b)
 {
-    
+    for (int i = 0; i < strlen(plaintext); i++)
+        {
+            plaintext[i] = (the logic) % 26 + 'A';
+        }
 }
 
 // Function to implement the affine cipher for decryption
 void affineDecrypt(char *plaintext, int a, int b)
 {
+    plaintext[i] = (modInv(plaintext[i] - 'A') % 26 +'A';
+    decryt = (modInvCheck * (character - 'A' - b)) % 26;
 
-    
 }
